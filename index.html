@@ -2,19 +2,54 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>برنامک یادداشت</title>
+  <title>Parsi NotePad</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Bootstrap 5 RTL -->
+      <link
+      rel="stylesheet"
+      href="https://c.vazirweb.ir/cdn/bootstrap/5.3.8/css/bootstrap.min.css"
+    />
+    <script
+      src="https://c.vazirweb.ir/cdn/bootstrap/5.3.8/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
 </head>
-<body>
 
-  <h3 id="username">در حال بارگذاری...</h3>
+<body class="container py-3" dir="rtl">
 
-  <textarea id="note" placeholder="یادداشت خود را بنویس..."></textarea>
-  <button onclick="saveNote()">ذخیره</button>
+  <h1 id="appname">Parsi NotePad for Eitaa</h1>
 
-  <p id="result"></p>
+  <div class="card shadow-sm p-3 mb-3">
+    <h5 id="username" class="text-center mb-3">...</h5>
 
-  <script src="script.js"></script>
+    <!-- FORM -->
+    <form id="noteForm">
+      <div class="mb-2">
+        <input type="text" id="title" class="form-control" placeholder="نام یادداشت" required>
+      </div>
+
+      <div class="mb-2">
+        <textarea id="content" class="form-control" rows="3" placeholder="متن یادداشت" required></textarea>
+      </div>
+
+      <input type="hidden" id="editId">
+
+      <div class="d-grid gap-3">
+        <div class="d-flex gap-2 mt-2 m-auto">
+          <button type="submit" class="btn btn-primary">💾 ذخیره</button>
+          <button type="button" class="btn btn-warning" onclick="clearForm()">🗑 پاک کردن</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <button type="button" onclick="clearAll()" class="mb-3 btn btn-outline-danger">🗑 حذف همه</button>
+
+  <!-- LIST -->
+  <div id="notesList"></div>
+
+  <script src="app.js"></script>
 </body>
 </html>
