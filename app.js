@@ -3,10 +3,10 @@ let editId = null;
 
 // دریافت نام کاربر از ایتا
 let userName = "کاربر";
-// if (window.Eitaa && Eitaa.WebApp) {
-//   const user = Eitaa.WebApp.initDataUnsafe?.user;
-//   if (user?.first_name) userName = user.first_name;
-// }
+if (window.Eitaa && Eitaa.WebApp) {
+  const user = Eitaa.WebApp.initDataUnsafe?.user;
+  if (user?.first_name) userName = user.first_name;
+}
 document.getElementById("username").innerText = `سلام ${userName} 👋`;
 
 const form = document.getElementById("noteForm");
